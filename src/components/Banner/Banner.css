@@ -7,6 +7,7 @@
     font-family: 'Segoe UI', sans-serif;
     max-height: 12vh;
     height: 5vh;
+    min-height: 5vh;
     background-color: transparent;
     color: white;
     position: relative;
@@ -144,10 +145,14 @@
         margin: 0;
         line-height: 1;
     }
+    .day{
+        font-size: 12px;
+    }
 
     .logout-button {
         font-size: 14px; /* Réduire la taille du bouton */
         padding: 8px 16px; /* Réduire le padding */
+        
     }
 }
 
@@ -200,6 +205,7 @@
     .weekday {
         font-weight: bold;
         margin: 0;
+        font-size: 14px;
         text-transform: capitalize;
     }
 
@@ -207,6 +213,7 @@
         font-size: 10px;
         margin: 0;
         line-height: 1;
+        padding-bottom: 8px;
     }
 
     /* Bouton de déconnexion */
@@ -218,6 +225,7 @@
         margin-top: 5px; /* Ajout d'une petite marge si nécessaire */
         align-self: flex-end; /* Assure que le bouton est toujours aligné à droite */
         order: 2; /* S'assure que le bouton reste à droite même en mode mobile */
+        padding-bottom: 35px;
     }
 
     /* Conteneur de la date/heure et du bouton */
