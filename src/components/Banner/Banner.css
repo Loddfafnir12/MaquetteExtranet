@@ -1,0 +1,234 @@
+.header {
+    display: flex;
+    flex-wrap: wrap; /* Permet de déplacer les éléments si l'espace est insuffisant */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: transparent;
+    color: white;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    height: auto;
+    width: 20%;
+    max-width: 300px;
+    margin-right: 15px;
+    flex-shrink: 0; /* Empêcher le logo de se réduire */
+}
+
+/* Nom d'utilisateur */
+.user-name {
+    font-size: 14px;
+    margin: 0;
+    margin-right: auto;
+    margin-left: 3%;
+    white-space: normal; /* Permettre au texte de passer à la ligne si nécessaire */
+    line-height: 1.2; /* Espacement entre les lignes */
+    text-align: left; /* Alignement à gauche si plusieurs lignes */
+}
+
+/* Titre */
+.app-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-40%);
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0;
+    z-index: 1;
+    text-align: center; /* Alignement au centre */
+}
+
+/* Date et heure */
+.datetime {
+    display: flex;
+    flex-wrap: wrap; /* Permet à la date/heure de passer sur plusieurs lignes si nécessaire */
+    align-items: center;
+    margin-right: 70px;
+    justify-content: flex-end;
+    text-align: right; /* Alignement à droite */
+}
+
+.time {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 1;
+    text-align: left;
+}
+
+.weekday {
+    font-weight: bold;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.day {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Bouton Déconnexion */
+.logout-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: white;
+    color: #2e3b4e;
+}
+
+/* MEDIA QUERIES pour la réactivité */
+
+/* Taille d'écran inférieure ou égale à 1083px */
+@media (max-width: 1083px) {
+    .logo {
+        display: none; /* Masquer le logo pour gagner de l'espace */
+    }
+
+    .user-name {
+        font-size: 12px; /* Réduire la taille du texte */
+        line-height: 1.4; /* Permettre un espacement plus large */
+        margin-left: 0; /* Réduire la marge gauche */
+    }
+
+    .app-title {
+        font-size: 28px; /* Réduire la taille du titre */
+        transform: translateX(-50%); /* Centrer davantage */
+    }
+
+    .datetime {
+        margin-right: 5px; /* Réduire l'espace pour la date/heure */
+        flex-direction: column; /* Placer la date et l'heure verticalement */
+        align-items: flex-start; /* Alignement à gauche pour les trois lignes */
+        margin-left: auto; /* Positionner la date/heure à droite */
+        gap: 2px; /* Espacement réduit entre l'heure, le jour et la date */
+    }
+
+    .time {
+        font-size: 36px; /* Réduire la taille de l'heure */
+        margin: 0;
+    }
+
+    .weekday {
+        font-weight: bold;
+        margin: 0;
+        text-transform: capitalize;
+    }
+
+    .date {
+        font-size: 14px; /* Réduire la taille de la date */
+        margin: 0;
+        line-height: 1;
+    }
+
+    .logout-button {
+        font-size: 14px; /* Réduire la taille du bouton */
+        padding: 8px 16px; /* Réduire le padding */
+    }
+}
+
+
+@media (max-width: 480px) {
+    .header {
+        display: flex;
+        flex-wrap: wrap; /* Permet aux éléments de se déplacer si nécessaire */
+        padding: 5px 10px;
+        justify-content: space-between; /* Assure l'espacement entre les éléments (gauche et droite) */
+        align-items: center; /* Aligne les éléments verticalement */
+        position: relative;
+    }
+
+    /* Nom d'utilisateur */
+    .user-name {
+        font-size: 10px;
+        line-height: 1.2;
+        margin: 0;
+        max-width: 30%; /* Limiter la largeur du nom d'utilisateur */
+    }
+
+    /* Titre de l'application */
+    .app-title {
+        font-size: 14px;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        width: 100%; /* Le titre prend toute la largeur disponible */
+    }
+
+    /* Date et heure */
+    .datetime {
+        display: flex;
+        flex-direction: column; /* Placer la date et l'heure en colonne */
+        align-items: flex-start; /* Alignement à gauche */
+        margin-right: 10px; /* Légère marge à droite */
+        gap: 2px; /* Espacement réduit entre l'heure, le jour et la date */
+        justify-content: center;
+        margin-left: auto; /* Permet à la date/heure de se déplacer à droite */
+    }
+
+    .time {
+        font-size: 14px; /* Taille réduite pour l'heure */
+        margin: 0;
+    }
+
+    .weekday {
+        font-weight: bold;
+        margin: 0;
+        text-transform: capitalize;
+    }
+
+    .date {
+        font-size: 10px;
+        margin: 0;
+        line-height: 1;
+    }
+
+    /* Bouton de déconnexion */
+    .logout-button {
+        font-size: 12px;
+        padding: 5px;
+        flex-shrink: 0; /* Ne permet pas au bouton de rétrécir */
+        margin-left: 10px; /* Légère marge à gauche du bouton */
+        margin-top: 5px; /* Ajout d'une petite marge si nécessaire */
+        align-self: flex-end; /* Assure que le bouton est toujours aligné à droite */
+        order: 2; /* S'assure que le bouton reste à droite même en mode mobile */
+    }
+
+    /* Conteneur de la date/heure et du bouton */
+    .header > .datetime {
+        order: 1; /* Permet à la date/heure de rester à gauche du bouton */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
