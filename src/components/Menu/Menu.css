@@ -3,20 +3,20 @@
     width: 250px;
     background-color: transparent;
     color: white;
-    padding: 10px;
-    
+    padding: 10px;   
     min-height: 100vh; /* Assure que le sidebar prend toute la hauteur de l'écran */
     position: fixed; /* Fixe le sidebar pour qu'il soit toujours visible */
 }
 
 .menu {
     list-style: none;
-    padding: 0;
+    padding: 45px;
     border-radius: 4px;
+
 }
 
 .menu-item {
-    padding: 10px;
+    padding: 25px;
     cursor: pointer;
     position: relative;
     display: block;
@@ -57,39 +57,4 @@
 .submenu-item:hover {
     background-color: white;
     color: #2e3b4e; 
-}
-
-/* Taille d'écran inférieure ou égale à 1083px */
-@media (max-width: 1083px) {
-    .header {
-        flex-wrap: wrap;
-        padding: 5px 10px;
-        justify-content: flex-start; /* Changez "space-between" pour "flex-start" pour éviter l'élément collé à droite */
-        align-items: center;
-    }
-
-    /* Date et heure */
-    .datetime {
-        flex-wrap: wrap;
-        align-items: flex-start;
-        margin-right: 0; /* Réduit l'espace pour la date/heure */
-        margin-left: auto;
-        gap: 2px;
-        justify-content: flex-start; /* Aligner la date et l'heure à gauche */
-        min-width: 0; /* Empêche les éléments de dépasser la largeur */
-    }
-
-    /* Pour la taille de l'heure et de la date */
-    .time {
-        font-size: 36px;
-    }
-
-    .date {
-        font-size: 14px;
-    }
-
-    .logout-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
 }

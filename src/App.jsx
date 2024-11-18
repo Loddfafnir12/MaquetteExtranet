@@ -7,6 +7,7 @@ import Menu from "./components/Menu/Menu"
      <div className='container'>
        <Banner/>
        <Menu/>
+       
      </div>
   )
 }
