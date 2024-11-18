@@ -1,10 +1,17 @@
 *{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+*{
   body {
     background: linear-gradient(to bottom right, #263c4e, #4d799a);
     height: 100vh;
     margin: 0;
     padding: 0;
     font-family: meg;
+    box-sizing: border-box;
 
   }
 }

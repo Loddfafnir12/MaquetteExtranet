@@ -5,6 +5,8 @@
     justify-content: space-between;
     padding: 10px 20px;
     font-family: 'Segoe UI', sans-serif;
+    max-height: 12vh;
+    height: 5vh;
     background-color: transparent;
     color: white;
     position: relative;
@@ -13,7 +15,7 @@
 /* Logo */
 .logo {
     height: auto;
-    width: 20%;
+    width: 11.5%;
     max-width: 300px;
     margin-right: 15px;
     flex-shrink: 0; /* Empêcher le logo de se réduire */
@@ -126,18 +128,19 @@
     }
 
     .time {
-        font-size: 36px; /* Réduire la taille de l'heure */
+        font-size: 30px; /* Réduire la taille de l'heure */
         margin: 0;
     }
 
     .weekday {
         font-weight: bold;
         margin: 0;
+        font-size: 18px;
         text-transform: capitalize;
     }
 
     .date {
-        font-size: 14px; /* Réduire la taille de la date */
+        font-size: 10px; /* Réduire la taille de la date */
         margin: 0;
         line-height: 1;
     }

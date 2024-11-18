@@ -47,35 +47,30 @@ const styles = {
     borderTopLeftRadius: "20px",
     boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)", // Ombre pour le style
     zIndex: 1000, // Assure que le tableau reste au-dessus d'autres éléments
-    width: "2240px", // Largeur fixe
-    height: "1185px", // Hauteur fixe
-    maxWidth: "100vw", // Largeur maximale en fonction de la taille de la fenêtre
-    maxHeight: "100vh", // Hauteur maximale en fonction de la taille de la fenêtre
+    width: "88vw", // La largeur sera 50% de la largeur de l'écran
+    height: "90vh", // La hauteur sera 40% de la hauteur de l'écran
     zIndex: 10,
-    // Assurez-vous que les éléments à l'intérieur sont également flexibles.
   },
   table: {
-    width: "100%", // Tableau prend toute la largeur du conteneur
-    height: "100%", // Tableau prend toute la hauteur du conteneur
+    width: "100%", // Le tableau prend toute la largeur du conteneur
+    height: "100%", // Le tableau prend toute la hauteur du conteneur
     borderCollapse: "collapse",
   },
   container2: {
     position: "fixed",
-    bottom: 14, // Positionné en bas
-    right: 10, // Positionné à droite
+    bottom: "1vh", // Positionné en bas avec un petit espace
+    right: "1vw", // Positionné à droite avec un petit espace
     backgroundColor: "white", // Couleur de fond pour plus de clarté
     borderRadius: "20px",
     boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)", // Ombre pour le style
     zIndex: 1000, // Assure que le tableau reste au-dessus d'autres éléments
-    width: "2200px", // Largeur fixe
-    height: "1000px", // Hauteur fixe
-    maxWidth: "100vw", // Largeur maximale en fonction de la taille de la fenêtre
-    maxHeight: "100vh", // Hauteur maximale en fonction de la taille de la fenêtre
+    width: "86vw", // La largeur sera 40% de la largeur de l'écran
+    height: "80vh", // La hauteur sera 30% de la hauteur de l'écran
     zIndex: 12,
   },
   table2: {
-    width: "100%", // Tableau prend toute la largeur du conteneur
-    height: "100%", // Tableau prend toute la hauteur du conteneur
+    width: "100%", // Le tableau prend toute la largeur du conteneur
+    height: "100%", // Le tableau prend toute la hauteur du conteneur
     borderCollapse: "collapse",
   },
 };
