@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Banner.css';
-import logo from '/src/image/logo-bearcod.webp'; // Chemin vers votre logo
+//import logo from '/src/image/logo-bearcod.webp'; // Chemin vers votre logo
+import logo from '/src/image/logo-bearcod_blanc.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 

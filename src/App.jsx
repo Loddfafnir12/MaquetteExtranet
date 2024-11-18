@@ -1,11 +1,13 @@
 import React from 'react'
 import Banner from './components/Banner/Banner'
 import Menu from "./components/Menu/Menu"
+import Tableau from './components/Tableau/Tableau'
 
  const App = () => {
   return (
      <div className='container'>
        <Banner/>
+       <Tableau/>
        <Menu/>
        
      </div>

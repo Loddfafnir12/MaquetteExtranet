@@ -21,10 +21,11 @@
 
 /* Nom d'utilisateur */
 .user-name {
-    font-size: 14px;
+    font-size: 20px;
+    padding-bottom: 45px;
     margin: 0;
     margin-right: auto;
-    margin-left: 3%;
+    margin-left: 1%;
     white-space: normal; /* Permettre au texte de passer à la ligne si nécessaire */
     line-height: 1.2; /* Espacement entre les lignes */
     text-align: left; /* Alignement à gauche si plusieurs lignes */
@@ -63,7 +64,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1;
     text-align: left;
 }
@@ -75,7 +76,7 @@
 }
 
 .day {
-    font-size: 14px;
+    font-size: 23px;
     margin: 0;
 }
 

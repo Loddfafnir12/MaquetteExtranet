@@ -8,7 +8,7 @@ const Menu = () => {
     // Dictionnaire de sous-menus pour chaque item
     const subMenus = {
         SAV: ['SUIVI', 'REPRISE', 'Courbe de déclaration'],
-        preparation: ['Option 1', 'Option 2'],  // Utilisation sans accent dans le code
+        preparation: ['Commande', 'Preparation','Expédition'],  
         parc: ['Option A', 'Option B'],
         analyse: ['Statistiques 1', 'Statistiques 2']
     };
