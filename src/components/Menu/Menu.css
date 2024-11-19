@@ -1,6 +1,6 @@
 /* Sidebar */
 .sidebar {
-    width: 9.5vw;
+    width: 12vw;
     background-color: transparent;
     color: white;
     padding-top: 6vh;
@@ -20,13 +20,13 @@
 .menu-item {
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-left: 45px;
+    
     cursor: pointer;
     position: relative;
     display: block;
     border-radius: 8px;
-    font-size: 20px;
-    text-align: left;
+    font-size: 1.4vw;
+    text-align: center;
     width: 100%; /* S'assure que chaque item de menu prend toute la largeur */
     z-index: 100;
 }

@@ -3,7 +3,7 @@
     flex-wrap: wrap; /* Permet de déplacer les éléments si l'espace est insuffisant */
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    
     font-family: 'Segoe UI', sans-serif;
     max-height: 12vh;
     height: 5vh;
@@ -110,7 +110,7 @@
     }
 
     .user-name {
-        font-size: 12px; /* Réduire la taille du texte */
+        font-size: 15px; /* Réduire la taille du texte */
         line-height: 1.4; /* Permettre un espacement plus large */
         margin-left: 0; /* Réduire la marge gauche */
     }
@@ -129,8 +129,9 @@
     }
 
     .time {
-        font-size: 30px; /* Réduire la taille de l'heure */
+        font-size: 27px; /* Réduire la taille de l'heure */
         margin: 0;
+        padding-top: 0px;
     }
 
     .weekday {
@@ -147,6 +148,7 @@
     }
     .day{
         font-size: 12px;
+        padding-bottom: 1px;
     }
 
     .logout-button {

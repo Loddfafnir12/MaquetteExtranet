@@ -49,7 +49,7 @@ const Banner = () => {
         </div>
       </div>
       {/* Afficher soit le texte, soit l'icône en fonction de la taille de la fenêtre */}
-      {windowWidth <= 768 ? (
+      {windowWidth <= 1200 ? (
         <button className="logout-button" onClick={handleLogout}>
           <FontAwesomeIcon icon={faRightFromBracket} /> {/* Icône de déconnexion */}
         </button>
