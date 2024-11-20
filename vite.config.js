@@ -8,3 +8,10 @@ export default defineConfig({
     assetsDir: 'assets', // Définir le dossier où seront placés les assets dans dist/
   },
 })
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}

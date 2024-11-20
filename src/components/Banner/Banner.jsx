@@ -33,8 +33,8 @@ const Banner = () => {
   };
 
   return (
-    <div className="header">
-      <img src={logo} alt="BEARCOD Logo" className="logo" />
+    <div className="banner">
+      <div className="banner-container">
       <p className="user-name">VINCENT VANDERHOEVEN</p>
       <p className="app-title">SAV - Suivi</p>
       <div className="datetime">
@@ -58,6 +58,7 @@ const Banner = () => {
           Déconnexion {/* Texte "Déconnexion" */}
         </button>
       )}
+    </div>
     </div>
   );
 };

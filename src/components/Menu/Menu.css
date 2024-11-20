@@ -1,76 +1,110 @@
 /* Sidebar */
 .sidebar {
-    width: 12vw;
-    background-color: transparent;
-    color: white;
-    padding-top: 6vh;
-    min-height: 100vh; /* Assure que le sidebar prend toute la hauteur de l'écran */
-    position: fixed; /* Fixe le sidebar pour qu'il soit toujours visible */
-    z-index: 100;
+  @apply fixed top-0 left-0 h-full w-64 bg-transparent text-white p-4 transition-all duration-300 ease-in-out;
+  z-index: 10; /* Assurez-vous que la sidebar ait un z-index supérieur au tableau */
 }
 
-.menu {
-    list-style: none;
-    padding: 0px;
-    border-radius: 8px;
-    z-index: 100;
-
+/* Titre de la sidebar */
+.sidebar-title {
+  @apply text-2xl font-bold mb-8;
 }
 
+/* Liste des éléments du menu */
+.menu-list {
+  @apply mt-8 list-none p-0 space-y-6;
+}
+
+/* Élément du menu avec animation de zoom et bord arrondi */
 .menu-item {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    
-    cursor: pointer;
-    position: relative;
-    display: block;
-    border-radius: 8px;
-    font-size: 1.4vw;
-    text-align: center;
-    width: 100%; /* S'assure que chaque item de menu prend toute la largeur */
-    z-index: 100;
+  @apply relative;
+  border-radius: 8px; /* Bord arrondi */
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease; /* Transition douce pour le zoom, couleur de fond et l'ombre */
 }
 
-.menu-item:hover
-{
-       width: 100%; 
-       
-       background-color: white;
-       border-radius: 8px;
-       color: #2e3b4e;
-       z-index: 100;
-    
+/* Lien du menu avec taille de police agrandie */
+.menu-link {
+  @apply block p-2 rounded-lg text-xl transition-all duration-300 ease-in-out; /* Taille de police agrandie */
 }
 
-/* Sous-menu */
+/* Effet au survol de l'élément du menu */
+.menu-item:hover {
+  @apply scale-105 bg-white shadow-lg; /* Zoom avec effet de survol, fond blanc et ombre */
+  color: #263c4e;
+}
+
+/* Sous-menu avec animation d'apparition */
 .submenu {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background: linear-gradient(to bottom right, #263c4e, #4d799a);
-    padding: 10px;
-    display: none;
-    border-radius: 8px;
-    min-width: 150px; /* Donne une largeur minimum au sous-menu */
-    z-index: 100;
+  @apply absolute left-full top-0 w-48 p-2 rounded-lg opacity-0 invisible transform translate-x-4 transition-all duration-300 ease-in-out;
+  background: linear-gradient(
+    to bottom right,
+    #263c4e,
+    #4d799a
+  ); /* Dégradé personnalisé */
+  z-index: 10000; /* Assurez-vous que le sous-menu soit au-dessus */
 }
 
-.menu-item:hover .submenu {
-    display: block;
-    z-index: 100;
-}
-
+/* Élément du sous-menu */
 .submenu-item {
-    padding: 5px;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-    z-index: 101;
+  @apply block text-sm p-2 transition-all duration-200 ease-in-out;
 }
 
 .submenu-item:hover {
-    background-color: white;
-    color: #2e3b4e; 
-    border-radius: 8px;
-    z-index: 100;
+  @apply bg-gray-600;
+}
+
+/* Montre le sous-menu lorsqu'il est actif avec une animation d'apparition */
+.menu-item:hover .submenu,
+.submenu-visible {
+  @apply opacity-100 visible translate-x-0;
+}
+
+/* Contenu principal */
+.main-content {
+  @apply flex-1 p-8 ml-64;
+}
+
+/* Logo container */
+.logo-container {
+  @apply flex justify-center items-center mb-8;
+}
+
+/* Logo pour les écrans plus petits */
+.logo-tete {
+  @apply w-16 h-16; /* Taille initiale du logo-tete */
+  transition: width 0.3s ease, height 0.3s ease; /* Transition douce pour le redimensionnement */
+}
+
+/* Logo pour les écrans plus larges */
+.logo-bearcod {
+  @apply w-40 h-32; /* Taille initiale du logo-bearcod */
+  transition: width 0.3s ease, height 0.3s ease; /* Transition douce pour le redimensionnement */
+}
+
+/* Affichage conditionnel en fonction de la taille */
+@media (max-width: 1024px) {
+  /* Pour les écrans plus petits que 1024px */
+  .logo-bearcod {
+    @apply hidden; /* Cache le logo grand écran */
+  }
+  .logo-tete {
+    @apply block; /* Affiche le logo pour petits écrans */
+  }
+
+  /* Réduire la taille de la sidebar pour les écrans plus petits */
+  .sidebar {
+    @apply w-48; /* Réduit la largeur du menu */
+  }
+}
+
+/* Réduire la taille du logo pour les écrans très petits */
+@media (max-width: 768px) {
+  .logo-tete {
+    @apply w-12 h-12; /* Réduit la taille du logo pour les très petits écrans */
+  }
+
+  /* Réduire encore plus la largeur du menu pour les petits écrans */
+  .sidebar {
+    @apply w-36; /* Réduit la largeur du menu pour les écrans plus petits */
+  }
 }

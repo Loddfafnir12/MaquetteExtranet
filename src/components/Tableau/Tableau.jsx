@@ -46,10 +46,10 @@ const styles = {
     backgroundColor: "#BFC3C6", // Couleur de fond pour plus de clarté
     borderTopLeftRadius: "20px",
     boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)", // Ombre pour le style
-    zIndex: 1000, // Assure que le tableau reste au-dessus d'autres éléments
+    
     width: "88vw", // La largeur sera 50% de la largeur de l'écran
     height: "90vh", // La hauteur sera 40% de la hauteur de l'écran
-    zIndex: 10,
+    
   },
   table: {
     width: "100%", // Le tableau prend toute la largeur du conteneur
@@ -63,10 +63,10 @@ const styles = {
     backgroundColor: "white", // Couleur de fond pour plus de clarté
     borderRadius: "20px",
     boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)", // Ombre pour le style
-    zIndex: 1000, // Assure que le tableau reste au-dessus d'autres éléments
+    
     width: "86vw", // La largeur sera 40% de la largeur de l'écran
     height: "80vh", // La hauteur sera 30% de la hauteur de l'écran
-    zIndex: 12,
+    
   },
   table2: {
     width: "100%", // Le tableau prend toute la largeur du conteneur
