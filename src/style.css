@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Geneva";
+  @import url("https://fonts.cdnfonts.com/css/geneva");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Geneva";
 }
 
 body {
@@ -13,6 +21,5 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: meg;
   box-sizing: border-box;
 }

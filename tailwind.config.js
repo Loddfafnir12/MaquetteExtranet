@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        geneva: ['Geneva', 'sans-serif'], // Ajoute "Geneva" comme famille de police
+      },
+    },
   },
   plugins: [],
 }

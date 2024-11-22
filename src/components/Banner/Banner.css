@@ -12,6 +12,29 @@
 .user-name {
   @apply text-xl font-semibold; /* Taille de police pour le nom, gras */
   white-space: nowrap; /* Empêcher le texte de se couper */
+  transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1), opacity 1s ease-out; /* Transition fun avec rotation et opacité */
+}
+
+/* Animation fun avec rebond et disparition */
+.user-name.hidden {
+  animation: bounce-out 1s ease-out forwards; /* Applique l'animation de rebond et disparition */
+  opacity: 0; /* Disparition du texte */
+  transform: rotate(360deg) scale(0.5) translateY(-50px); /* Rotation, rétrécissement et translation vers le haut */
+}
+
+/* Animation de rebond avant disparition */
+@keyframes bounce-out {
+  0% {
+    transform: rotate(0deg) scale(1) translateY(0); /* Départ de l'élément */
+    opacity: 1; /* Visible */
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2) translateY(-20px); /* Rebond au 50% */
+  }
+  100% {
+    transform: rotate(360deg) scale(0.5) translateY(-50px); /* Réduction et disparition à la fin */
+    opacity: 0; /* Assurer que l'élément disparaisse complètement */
+  }
 }
 
 /* Style pour le titre de l'application */
@@ -22,7 +45,7 @@
 
 /* Conteneur pour l'heure, le jour et la date */
 .datetime {
-  @apply flex items-center justify-end space-x-6; /* Flexbox avec un espacement plus grand entre les éléments */
+  @apply flex items-center justify-end space-x-6 pl-2; /* Flexbox avec un espacement plus grand entre les éléments */
 }
 
 /* Style de l'heure */
@@ -32,14 +55,21 @@
 
 /* Style pour le jour et la date */
 .date {
-  @apply text-sm font-light; /* Texte petit et léger pour la date et le jour */
+  @apply text-sm font-light pl-1; /* Texte petit et léger pour la date et le jour */
   text-align: right; /* Alignement du texte à droite */
 }
 
-/* Style du bouton de déconnexion */
 .logout-button {
-  @apply text-sm font-medium hover:underline; /* Taille du texte et soulignement au survol */
-  margin-left: 20px; /* Espace entre le bouton de déconnexion et la date/heure */
+  @apply text-xl font-bold rounded-lg p-1;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logout-button:hover {
+  color: #263c4e; /* Change la couleur du texte */
+  background-color: white;
+  animation: bounceAndRotate 0.6s ease-in-out forwards;
+  transform: scale(1.1); /* Légère augmentation de taille pour le survol */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre subtile pour un effet de profondeur */
 }
 
 /* Ajout de quelques media queries pour la réactivité */
@@ -47,5 +77,69 @@
   .logout-button {
     display: flex;
     align-items: center;
+  }
+}
+
+/* Réagencement en mode mobile (480px) */
+@media (max-width: 480px) {
+  /* Bannière prend toute la largeur */
+  .banner {
+    @apply w-full; /* La bannière prend toute la largeur de l'écran */
+    top: 0;
+    left: 0;
+  }
+
+  /* Conteneur de la bannière en ligne */
+  .banner-container {
+    @apply flex items-center justify-between w-full px-4 py-2; /* Flex en ligne */
+  }
+
+  /* Nom d'utilisateur plus petit et sur 2 lignes */
+  .user-name {
+    @apply text-xs font-semibold text-left; /* Plus petit et aligné à gauche */
+    white-space: normal; /* Permet au texte de se couper sur 2 lignes */
+    word-wrap: break-word; /* Permet au texte de se couper sur plusieurs lignes si nécessaire */
+    line-height: 1.2; /* Espacement entre les lignes */
+    padding-left: 2%;
+    max-width: 20%; /* Assurer que le nom d'utilisateur occupe toute la largeur disponible */
+  }
+
+  /* Titre de l'application centré */
+  .app-title {
+    @apply text-lg font-bold text-center; /* Centré et occupe toute la largeur */
+    white-space: normal; /* Permet au texte de se couper si nécessaire */
+  }
+
+  /* Réorganisation de l'heure et du bouton de déconnexion */
+  .datetime {
+    @apply flex items-center justify-end w-auto space-x-2; /* Flexbox avec alignement à droite */
+  }
+
+  /* Heure en taille plus petite */
+  .time {
+    @apply text-xl font-bold pr-1; /* Taille réduite pour l'heure */
+  }
+
+  /* Supprimer la date et le jour */
+  .date {
+    @apply hidden; /* Cacher la date et le jour en mode mobile */
+  }
+}
+/* Définir l'animation 'bounceAndRotate' */
+@keyframes bounceAndRotate {
+  0% {
+    transform: scale(1) rotate(0deg); /* Initialement, l'élément est à sa taille normale */
+  }
+  30% {
+    transform: scale(1.2) rotate(10deg); /* Grossissement et légère rotation */
+  }
+  50% {
+    transform: scale(0.9) rotate(-10deg); /* Réduction et rotation inverse pour l'effet de rebond */
+  }
+  70% {
+    transform: scale(1.1) rotate(5deg); /* Légère augmentation et rotation */
+  }
+  100% {
+    transform: scale(1) rotate(0deg); /* Retour à la taille et rotation initiales */
   }
 }

@@ -2,6 +2,8 @@
 .sidebar {
   @apply fixed top-0 left-0 h-full w-64 bg-transparent text-white p-4 transition-all duration-300 ease-in-out;
   z-index: 10; /* Assurez-vous que la sidebar ait un z-index supérieur au tableau */
+  transform: translateX(-100%); /* Menu caché par défaut en mode mobile */
+  display: none; /* Le menu est caché par défaut en mode mobile */
 }
 
 /* Titre de la sidebar */
@@ -35,22 +37,22 @@
 
 /* Sous-menu avec animation d'apparition */
 .submenu {
-  @apply absolute left-full top-0 w-48 p-2 rounded-lg opacity-0 invisible transform translate-x-4 transition-all duration-300 ease-in-out;
-  background: linear-gradient(
-    to bottom right,
-    #263c4e,
-    #4d799a
-  ); /* Dégradé personnalisé */
+  @apply absolute left-full text-white top-0 p-2 rounded-lg opacity-0 invisible transform translate-x-4 transition-all duration-300 ease-in-out;
+  background: linear-gradient(to bottom right, #263c4e, #4d799a);
   z-index: 10000; /* Assurez-vous que le sous-menu soit au-dessus */
+  width: max-content + 2px; /* Ajuste la largeur du sous-menu au contenu */
+  /* Rajoute 2px d'espacement supplémentaire à droite */
 }
 
 /* Élément du sous-menu */
 .submenu-item {
-  @apply block text-sm p-2 transition-all duration-200 ease-in-out;
+  @apply block text-xl text-white p-2 transition-all duration-200 rounded-lg ease-in-out;
+  white-space: nowrap; /* Empêche le texte de se couper et garantit que le sous-menu se redimensionne correctement */
 }
 
 .submenu-item:hover {
-  @apply bg-gray-600;
+  @apply bg-white shadow-lg scale-105;
+  color: #263c4e;
 }
 
 /* Montre le sous-menu lorsqu'il est actif avec une animation d'apparition */
@@ -106,5 +108,103 @@
   /* Réduire encore plus la largeur du menu pour les petits écrans */
   .sidebar {
     @apply w-36; /* Réduit la largeur du menu pour les écrans plus petits */
+  }
+}
+
+/* Effet pour le bouton burger */
+.burger-menu {
+  @apply md:hidden fixed top-4 left-4 z-20 cursor-pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Ajouter une animation de rotation lors du clic */
+.burger-menu.rotate {
+  transform: rotate(180deg); /* Rotation du bouton */
+}
+
+/* Animation d'ouverture du menu en mobile */
+.sidebar.open {
+  transform: translateX(0); /* Glissement du menu depuis la gauche */
+  animation: slideIn 0.5s ease-out forwards; /* Animation de glissement */
+}
+
+/* Mode desktop : Le menu est toujours visible */
+@media (min-width: 481px) {
+  .sidebar {
+    display: block; /* Le menu est visible par défaut en desktop */
+    transform: translateX(0); /* Toujours à sa position d'origine */
+  }
+
+  .burger-menu {
+    display: none; /* Le bouton burger est caché en desktop */
+  }
+}
+
+/* Animation de fermeture du menu en mobile */
+.sidebar.close {
+  transform: translateX(-100%); /* Rétraction du menu vers la gauche */
+  animation: slideOut 0.3s ease-in forwards; /* Animation de rétraction */
+}
+
+/* Keyframes pour le glissement du menu */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Le menu commence hors de l'écran */
+  }
+  100% {
+    transform: translateX(0); /* Le menu se glisse à sa position d'origine */
+  }
+}
+
+/* Keyframes pour la fermeture du menu (effet rigolo) */
+@keyframes slideOut {
+  0% {
+    transform: translateX(0); /* Position initiale du menu */
+  }
+  50% {
+    transform: translateX(
+      -30%
+    ); /* Un petit mouvement pour rendre l'animation rigolote */
+  }
+  100% {
+    transform: translateX(-100%); /* Le menu disparaît complètement */
+  }
+}
+
+/* Mode mobile : menu caché par défaut */
+@media (max-width: 480px) {
+  .sidebar {
+    display: none; /* Le menu est caché par défaut en mobile */
+  }
+
+  /* Quand la classe 'open' est ajoutée, on affiche le menu */
+  .sidebar.open {
+    display: block;
+  }
+
+  .burger-menu {
+    display: block; /* Le bouton burger est visible */
+  }
+}
+
+/* Animation de fermeture du sous-menu sur mobile après un clic */
+.submenu-visible {
+  @apply opacity-100 visible translate-x-0;
+}
+
+.submenu {
+  @apply opacity-0 invisible;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Mode desktop : Les sous-menus apparaissent au survol */
+@media (min-width: 481px) {
+  .submenu {
+    @apply opacity-0 invisible;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .menu-item:hover .submenu {
+    @apply opacity-100 visible translate-x-0;
   }
 }

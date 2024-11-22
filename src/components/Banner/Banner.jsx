@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Banner.css';
-//import logo from '/src/image/logo-bearcod.webp'; // Chemin vers votre logo
-import logo from '/src/image/logo-bearcod_blanc.png'
+import logo from '/src/image/logo-bearcod_blanc.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
-const Banner = () => {
+const Banner = ({ menuOpen }) => {
   const [dateTime, setDateTime] = useState(new Date());
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Suivi de la largeur de la fenêtre
+  const [menuActive, setMenuActive] = useState(false); // Suivi de l'état du menu burger
 
   // Mise à jour de la date/heure toutes les minutes
   useEffect(() => {
@@ -28,6 +28,12 @@ const Banner = () => {
     };
   }, []);
 
+  // Mise à jour de l'état du menu burger (ouverture/fermeture)
+  useEffect(() => {
+    setMenuActive(menuOpen);
+  }, [menuOpen]);
+
+  // Fonction de déconnexion
   const handleLogout = () => {
     alert('Déconnexion !');
   };
@@ -35,30 +41,38 @@ const Banner = () => {
   return (
     <div className="banner">
       <div className="banner-container">
-      <p className="user-name">VINCENT VANDERHOEVEN</p>
-      <p className="app-title">SAV - Suivi</p>
-      <div className="datetime">
-        <p className="time">{dateTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</p>
-        <div className="date">
-          <p className="weekday">
-            {dateTime.toLocaleDateString('fr-FR', { weekday: 'long' })}
+        {/* Afficher le nom d'utilisateur uniquement si le menu burger est fermé et en mode mobile */}
+        <p className={`user-name ${windowWidth <= 480 && menuActive ? 'hidden' : ''}`}>
+          VINCENT VANDERHOEVEN
+        </p>
+
+        <p className="app-title">SAV - Suivi</p>
+
+        <div className="datetime">
+          <p className="time">
+            {dateTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
           </p>
-          <p className="day">
-            {dateTime.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}
-          </p>
+          <div className="date">
+            <p className="weekday">
+              {dateTime.toLocaleDateString('fr-FR', { weekday: 'long' })}
+            </p>
+            <p className="day">
+              {dateTime.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+            </p>
+          </div>
         </div>
+
+        {/* Afficher soit le texte, soit l'icône en fonction de la taille de la fenêtre */}
+        {windowWidth <= 1200 ? (
+          <button className="logout-button" onClick={handleLogout}>
+            <FontAwesomeIcon icon={faRightFromBracket} />
+          </button>
+        ) : (
+          <button className="logout-button" onClick={handleLogout}>
+            Déconnexion
+          </button>
+        )}
       </div>
-      {/* Afficher soit le texte, soit l'icône en fonction de la taille de la fenêtre */}
-      {windowWidth <= 1200 ? (
-        <button className="logout-button" onClick={handleLogout}>
-          <FontAwesomeIcon icon={faRightFromBracket} /> {/* Icône de déconnexion */}
-        </button>
-      ) : (
-        <button className="logout-button" onClick={handleLogout}>
-          Déconnexion {/* Texte "Déconnexion" */}
-        </button>
-      )}
-    </div>
     </div>
   );
 };

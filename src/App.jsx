@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react';  // Ajoutez useState ici
 import Banner from './components/Banner/Banner'
 import Menu from "./components/Menu/Menu"
+
 import Tableau from './components/Tableau/Tableau'
 import './style.css'
 
 
- const App = () => {
-  return (
-    <div className="App">
-      
-      <Menu />
-      <Banner />
-    </div>
-  )
-}
 
-export default App
+const App = () => {
+  // État pour savoir si le menu est ouvert ou fermé
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Fonction pour basculer l'état du menu
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  return (
+    <div>
+      {/* Passer l'état du menu et la fonction de bascule */}
+      <Menu toggleMenu={toggleMenu} menuOpen={menuOpen} />
+      <Banner menuOpen={menuOpen} />
+    </div>
+  );
+};
+
+export default App;
 //<Banner/>
    //    <Tableau/>
    //    <Menu/>
