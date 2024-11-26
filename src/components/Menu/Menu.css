@@ -224,9 +224,6 @@
     flex-direction: column; /* Empile les menus en une seule colonne */
   }
 
-  .menu-item {
-    margin-bottom: 1rem; /* Espacement entre les items principaux */
-  }
 
   submenu {
     @apply opacity-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
