@@ -39,24 +39,24 @@
 
 /* Style pour le titre de l'application */
 .app-title {
-  @apply text-2xl font-bold text-center flex-1; /* Centrer le titre avec flexbox et largeur flexible */
+  @apply text-5xl font-bold text-center flex-1; /* Centrer le titre avec flexbox et largeur flexible */
   white-space: nowrap; /* Empêcher le texte de se couper */
 }
 
 /* Conteneur pour l'heure, le jour et la date */
 .datetime {
-  @apply flex items-center justify-end space-x-6 pl-2; /* Flexbox avec un espacement plus grand entre les éléments */
+  @apply text-xl capitalize flex items-center justify-end space-x-6 pl-2 pr-2; /* Flexbox avec un espacement plus grand entre les éléments */
 }
 
 /* Style de l'heure */
 .time {
-  @apply text-4xl font-bold; /* Heure en grande taille */
+  @apply text-5xl font-bold; /* Heure en grande taille */
 }
 
 /* Style pour le jour et la date */
 .date {
-  @apply text-sm font-light pl-1; /* Texte petit et léger pour la date et le jour */
-  text-align: right; /* Alignement du texte à droite */
+  @apply text-lg font-bold pr-1; /* Texte petit et léger pour la date et le jour */
+  text-align: left; /* Alignement du texte à gauche */
 }
 
 .logout-button {

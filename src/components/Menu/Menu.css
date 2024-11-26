@@ -23,10 +23,21 @@
   transition: transform 0.3s ease, background-color 0.3s ease,
     box-shadow 0.3s ease; /* Transition douce pour le zoom, couleur de fond et l'ombre */
 }
+.menu-spacing {
+  @apply mt-20; /* Ajoute une marge supérieure équivalente à 2.5rem (40px) */
+}
 
 /* Lien du menu avec taille de police agrandie */
 .menu-link {
   @apply block p-2 rounded-lg text-xl transition-all duration-300 ease-in-out; /* Taille de police agrandie */
+}
+.menu-icon {
+  @apply absolute top-0 right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
+  transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
+}
+
+.menu-item:hover .menu-icon {
+  transform: rotate(40deg); /* Apply a rotation transformation on hover */
 }
 
 /* Effet au survol de l'élément du menu */
@@ -38,7 +49,7 @@
 /* Sous-menu avec animation d'apparition */
 .submenu {
   @apply absolute left-full text-white top-0 p-2 rounded-lg opacity-0 invisible transform translate-x-4 transition-all duration-300 ease-in-out;
-  background: linear-gradient(to bottom right, #263c4e, #4d799a);
+  background: radial-gradient(circle at top left, #263c4e 0%, #4d799a 70%);
   z-index: 10000; /* Assurez-vous que le sous-menu soit au-dessus */
   width: max-content + 2px; /* Ajuste la largeur du sous-menu au contenu */
   /* Rajoute 2px d'espacement supplémentaire à droite */
@@ -184,6 +195,43 @@
 
   .burger-menu {
     display: block; /* Le bouton burger est visible */
+  }
+
+  .menu-link {
+    @apply text-sm; /* Ajuste la taille de la police des éléments du menu */
+  }
+
+  .menu-icon {
+    @apply text-lg; /* Ajuste la taille des icônes */
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: column; /* Empile les menus en une seule colonne */
+  }
+
+  .menu-item {
+    margin-bottom: 1rem; /* Espacement entre les items principaux */
+  }
+
+  submenu {
+    @apply opacity-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
+    background: radial-gradient(circle at top left, #263c4e 0%, #4d799a 70%);
+    max-width: 90vw; /* Limiting submenu width */
+    margin-top: 10px; /* Espacement entre le menu et le sous-menu */
+    border-radius: 8px; /* Bord arrondi */
+  }
+
+  /* Élément du sous-menu */
+  .submenu-item {
+    @apply block text-sm text-white p-2 transition-all duration-200 rounded-lg ease-in-out;
+    white-space: nowrap; /* Empêche le texte de se couper */
+    cursor: pointer; /* Change le curseur lors du survol */
+  }
+
+  /* Affichage du sous-menu lorsque l'élément parent est ouvert */
+  .menu-item.open .submenu {
+    @apply opacity-100 max-h-[500px]; /* Animation pour le déploiement */
   }
 }
 
