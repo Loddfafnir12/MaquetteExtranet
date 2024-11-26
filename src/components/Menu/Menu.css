@@ -13,12 +13,12 @@
 
 /* Liste des éléments du menu */
 .menu-list {
-  @apply mt-8 list-none p-0 space-y-6;
+  @apply mt-8 list-none p-0 space-y-6 text-xl;
 }
 
 /* Élément du menu avec animation de zoom et bord arrondi */
 .menu-item {
-  @apply relative;
+  @apply relative text-xl;
   border-radius: 8px; /* Bord arrondi */
   transition: transform 0.3s ease, background-color 0.3s ease,
     box-shadow 0.3s ease; /* Transition douce pour le zoom, couleur de fond et l'ombre */
@@ -104,6 +104,13 @@
     @apply block; /* Affiche le logo pour petits écrans */
   }
 
+  .menu-link {
+    @apply block p-2 rounded-lg text-lg transition-all duration-300 ease-in-out; /* Taille de police agrandie */
+  }
+  .menu-icon {
+    @apply absolute top-0 right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
+    transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
+  }
   /* Réduire la taille de la sidebar pour les écrans plus petits */
   .sidebar {
     @apply w-48; /* Réduit la largeur du menu */
@@ -115,6 +122,13 @@
   .logo-tete {
     @apply w-12 h-12; /* Réduit la taille du logo pour les très petits écrans */
   }
+  .menu-link {
+  @apply block p-2 rounded-lg text-sm transition-all duration-300 ease-in-out; /* Taille de police agrandie */
+}
+.menu-icon {
+  @apply absolute top-0 right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
+  transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
+}
 
   /* Réduire encore plus la largeur du menu pour les petits écrans */
   .sidebar {
