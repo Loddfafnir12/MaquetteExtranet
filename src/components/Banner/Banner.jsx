@@ -42,7 +42,7 @@ const Banner = ({ menuOpen }) => {
     <div className="banner">
       <div className="banner-container">
         {/* Afficher le nom d'utilisateur uniquement si le menu burger est fermé et en mode mobile */}
-        <p className={`user-name ${windowWidth <= 480 && menuActive ? 'hidden' : ''}`}>
+        <p className="user-name">
           VINCENT VANDERHOEVEN
         </p>
 

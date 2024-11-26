@@ -1,7 +1,7 @@
 import React, { useState } from 'react';  // Ajoutez useState ici
 import Banner from './components/Banner/Banner'
 import Menu from "./components/Menu/Menu"
-
+import Appcontainer from "./components/Appcontainer/Appcontainer"
 import Tableau from './components/Tableau/Tableau'
 import './style.css'
 
@@ -21,6 +21,7 @@ const App = () => {
       {/* Passer l'état du menu et la fonction de bascule */}
       <Menu toggleMenu={toggleMenu} menuOpen={menuOpen} />
       <Banner menuOpen={menuOpen} />
+      <Appcontainer></Appcontainer>
     </div>
   );
 };

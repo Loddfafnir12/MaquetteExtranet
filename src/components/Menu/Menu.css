@@ -29,11 +29,14 @@
 
 /* Lien du menu avec taille de police agrandie */
 .menu-link {
-  @apply block p-2 rounded-lg text-xl transition-all duration-300 ease-in-out; /* Taille de police agrandie */
+  @apply block p-2 rounded-lg text-xl transition-all duration-300 ease-in-out justify-between truncate; /* Taille de police agrandie */
 }
 .menu-icon {
-  @apply absolute top-0 right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
+  @apply absolute right-0 text-xl; /* Align the icon to the top right corner with some margin */
   transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
+}
+.menu-spacing {
+  @apply h-1;
 }
 
 .menu-item:hover .menu-icon {
@@ -108,7 +111,7 @@
     @apply block p-2 rounded-lg text-lg transition-all duration-300 ease-in-out; /* Taille de police agrandie */
   }
   .menu-icon {
-    @apply absolute top-0 right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
+    @apply absolute right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
     transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
   }
   /* Réduire la taille de la sidebar pour les écrans plus petits */
@@ -123,12 +126,12 @@
     @apply w-12 h-12; /* Réduit la taille du logo pour les très petits écrans */
   }
   .menu-link {
-  @apply block p-2 rounded-lg text-sm transition-all duration-300 ease-in-out; /* Taille de police agrandie */
-}
-.menu-icon {
-  @apply absolute top-0 right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
-  transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
-}
+    @apply block p-2 rounded-lg text-sm transition-all duration-300 ease-in-out; /* Taille de police agrandie */
+  }
+  .menu-icon {
+    @apply absolute right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
+    transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
+  }
 
   /* Réduire encore plus la largeur du menu pour les petits écrans */
   .sidebar {
@@ -200,6 +203,7 @@
 @media (max-width: 480px) {
   .sidebar {
     display: none; /* Le menu est caché par défaut en mobile */
+    background: radial-gradient(circle at top left, #263c4e 0%, #4d799a 70%);
   }
 
   /* Quand la classe 'open' est ajoutée, on affiche le menu */
@@ -211,19 +215,18 @@
     display: block; /* Le bouton burger est visible */
   }
 
-  .menu-link {
-    @apply text-sm; /* Ajuste la taille de la police des éléments du menu */
-  }
-
   .menu-icon {
-    @apply text-lg; /* Ajuste la taille des icônes */
+    @apply text-sm; /* Ajuste la taille des icônes */
   }
 
   .menu-list {
     display: flex;
     flex-direction: column; /* Empile les menus en une seule colonne */
   }
-
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+  }
 
   submenu {
     @apply opacity-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out;

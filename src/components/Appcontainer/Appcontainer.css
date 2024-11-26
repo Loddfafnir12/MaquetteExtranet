@@ -1,0 +1,59 @@
+.Contenu {
+  @apply absolute bottom-0 right-0 bg-gray-300 rounded-lg;
+  width: calc(
+    100% - 275px
+  ); /* Calculate the width to take up the remaining space */
+  height: calc(100% - 135px);
+}
+.Contenu-Contenu {
+  @apply absolute bottom-0 right-2 bg-white rounded-md overflow-scroll text-5xl;
+  width: 99%;
+  height: calc(100% - 50px);
+}
+
+.Contenu-Contenu::-webkit-scrollbar {
+  width: 12px;
+}
+
+.Contenu-Contenu::-webkit-scrollbar-thumb {
+  background-color: #5d7281;
+  border-radius: 6px;
+}
+
+.Contenu-Contenu::-webkit-scrollbar-track {
+  background-color: #f3f4f6;
+}
+
+/* Handle on hover */
+.Contenu-Contenu::-webkit-scrollbar-thumb:hover {
+  background: #4d799a; /* Darker handle color on hover */
+}
+
+.filter-button {
+  @apply absolute top-2 right-5 text-xl;
+  color: #4d799a;
+}
+
+@media (max-width: 480px) {
+  .Contenu {
+    width: 100%;
+    height: calc(100% - 135px);
+  }
+  .Contenu-Contenu {
+    @apply absolute bottom-0 right-0 bg-white rounded-md overflow-auto;
+    width: 100%;
+    height: calc(100% - 50px);
+  }
+  .Contenu-Contenu::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .Contenu-Contenu::-webkit-scrollbar-thumb {
+    background-color: #5d7281;
+    border-radius: 4px;
+  }
+
+  .Contenu-Contenu::-webkit-scrollbar-track {
+    background-color: #f3f4f6;
+  }
+}
