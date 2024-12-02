@@ -108,10 +108,10 @@
   }
 
   .menu-link {
-    @apply block p-2 rounded-lg text-lg transition-all duration-300 ease-in-out; /* Taille de police agrandie */
+    @apply block p-2 rounded-lg text-lg transition-all duration-300 ease-in-out justify-between truncate; /* Taille de police agrandie */
   }
   .menu-icon {
-    @apply absolute right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
+    @apply absolute p-1 right-0 text-xl; /* Align the icon to the top right corner with some margin */
     transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
   }
   /* Réduire la taille de la sidebar pour les écrans plus petits */
@@ -126,10 +126,10 @@
     @apply w-12 h-12; /* Réduit la taille du logo pour les très petits écrans */
   }
   .menu-link {
-    @apply block p-2 rounded-lg text-sm transition-all duration-300 ease-in-out; /* Taille de police agrandie */
+    @apply block p-2 rounded-lg text-sm transition-all duration-300 ease-in-out justify-between truncate; /* Taille de police agrandie */
   }
   .menu-icon {
-    @apply absolute right-0 mt-2 mr-2 text-xl; /* Align the icon to the top right corner with some margin */
+    @apply absolute p-0.5 right-0 text-xl; /* Align the icon to the top right corner with some margin */
     transition: transform 0.3s ease; /* Add a smooth transition for the transform property */
   }
 

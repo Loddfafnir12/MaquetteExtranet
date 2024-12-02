@@ -1,14 +1,49 @@
 .Contenu {
   @apply absolute bottom-0 right-0 bg-gray-300 rounded-lg;
-  width: calc(
-    100% - 275px
-  ); /* Calculate the width to take up the remaining space */
-  height: calc(100% - 135px);
+  width: calc(100% - 275px); /* Reste de l'espace */
+  height: calc(100% - 135px); /* Reste de l'espace */
+  overflow: hidden; /* Empêche tout débordement de contenu enfant */
+  display: flex; /* Pour faciliter l'organisation des enfants si besoin */
+  flex-direction: column; /* Assure un positionnement vertical */
 }
+
 .Contenu-Contenu {
-  @apply absolute bottom-0 right-2 bg-white rounded-md overflow-scroll text-5xl;
-  width: 99%;
-  height: calc(100% - 50px);
+  @apply bg-white rounded-md overflow-auto text-5xl mx-2 transition-all ease-in-out; /* Transition fluide */
+  flex-grow: 1; /* L'enfant remplit l'espace restant de son parent */
+  margin: 2px; /* Espacement interne */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 10s ease-in-out, transform 10s ease-in-out;
+}
+
+.filter {
+  @apply bg-gray-300 py-2 px-4 rounded-t-lg flex justify-end items-center;
+  height: 70px; /* Hauteur par défaut */
+  overflow: hidden; /* Cache tout le contenu qui dépasse */
+  transition: max-height 3s cubic-bezier(0.23, 1, 0.32, 1),
+    padding 0.6s ease-out; /* Transition fluide avec cubic-bezier pour un effet plus fluide */
+}
+
+.filter.expanded {
+  max-height: 300px; /* Hauteur agrandie (on utilise max-height pour animer) */
+  padding: 20px 4rem; /* Agrandir le padding pour l'agrandissement */
+}
+
+.hiddenContent {
+  @apply bg-gray-300 p-4 rounded-lg;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 10s ease-in-out, transform 10s ease-in-out;
+}
+
+.hiddenContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.filter-button {
+  @apply absolute top-2 right-5 text-xl;
+  color: #4d799a;
 }
 
 .Contenu-Contenu::-webkit-scrollbar {
@@ -27,11 +62,6 @@
 /* Handle on hover */
 .Contenu-Contenu::-webkit-scrollbar-thumb:hover {
   background: #4d799a; /* Darker handle color on hover */
-}
-
-.filter-button {
-  @apply absolute top-2 right-5 text-xl;
-  color: #4d799a;
 }
 
 @media (max-width: 480px) {
