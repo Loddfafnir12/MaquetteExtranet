@@ -53,7 +53,7 @@ const Menu = ({ toggleMenu, menuOpen }) => {
           {menuData.map((menu, index) => (
             <React.Fragment key={menu.id}>
               <li className={`menu-item ${activeSubmenu === menu.id ? 'active' : ''}`} onClick={() => toggleSubmenu(menu.id)}>
-                <div className="menu-link" style={{ fontSize: isMobile && activeSubmenu === menu.id ? '0.8rem' : '1rem' }}>
+                <div className="menu-link" style={{ fontSize: isMobile && activeSubmenu === menu.id ? '0.8rem' : '1.25rem' }}>
                   {menu.title}
                   <FontAwesomeIcon icon={faArrowRight} className="menu-icon" />
                 </div>

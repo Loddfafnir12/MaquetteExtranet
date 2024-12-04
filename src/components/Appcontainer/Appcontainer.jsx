@@ -19,6 +19,7 @@ const Appcontainer = () => {
   const adjustContentHeight = () => {
     if (contenuRef.current && filterRef.current) {
       const filterHeight = filterRef.current.offsetHeight; // Hauteur de .filter
+
       if (isHiddenContentVisible) {
         contenuRef.current.style.height = `calc(100% - ${filterHeight + 100}px)`; // Ajuster la hauteur si le contenu caché est visible
       } else {
@@ -26,10 +27,12 @@ const Appcontainer = () => {
       }
     }
   };
+  
 
   // Utiliser useEffect pour ajuster la hauteur au chargement et lors du redimensionnement
   useEffect(() => {
     adjustContentHeight();
+    contenuRef.current?.classList.add("contenu-contenu"); // Ajoute la classe CSS pour la transition
     window.addEventListener("resize", adjustContentHeight);
     return () => {
       window.removeEventListener("resize", adjustContentHeight); // Nettoyage
@@ -56,7 +59,7 @@ const Appcontainer = () => {
           <FontAwesomeIcon icon={faFilter} />
         </button>
         <button onClick={toggleFilterSize}>
-          {isFilterExpanded ? "Réduire" : "Agrandir"}
+          {isFilterExpanded }
         </button>
       </div>
 

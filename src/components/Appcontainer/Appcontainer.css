@@ -2,9 +2,10 @@
   @apply absolute bottom-0 right-0 bg-gray-300 rounded-lg;
   width: calc(100% - 275px); /* Reste de l'espace */
   height: calc(100% - 135px); /* Reste de l'espace */
-  overflow: hidden; /* Empêche tout débordement de contenu enfant */
   display: flex; /* Pour faciliter l'organisation des enfants si besoin */
   flex-direction: column; /* Assure un positionnement vertical */
+  transition: height 0.3s ease;
+  overflow: hidden; /* Assure que le contenu reste dans la zone visible */
 }
 
 .Contenu-Contenu {
@@ -12,16 +13,13 @@
   flex-grow: 1; /* L'enfant remplit l'espace restant de son parent */
   margin: 2px; /* Espacement interne */
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 10s ease-in-out, transform 10s ease-in-out;
 }
 
 .filter {
   @apply bg-gray-300 py-2 px-4 rounded-t-lg flex justify-end items-center;
   height: 70px; /* Hauteur par défaut */
   overflow: hidden; /* Cache tout le contenu qui dépasse */
-  transition: max-height 3s cubic-bezier(0.23, 1, 0.32, 1),
-    padding 0.6s ease-out; /* Transition fluide avec cubic-bezier pour un effet plus fluide */
+  transition: height 1s ease;
 }
 
 .filter.expanded {
@@ -33,7 +31,7 @@
   @apply bg-gray-300 p-4 rounded-lg;
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 10s ease-in-out, transform 10s ease-in-out;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .hiddenContent.visible {
