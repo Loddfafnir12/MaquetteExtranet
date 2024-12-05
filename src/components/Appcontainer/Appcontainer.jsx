@@ -21,7 +21,7 @@ const Appcontainer = () => {
       const filterHeight = filterRef.current.offsetHeight; // Hauteur de .filter
 
       if (isHiddenContentVisible) {
-        contenuRef.current.style.height = `calc(100% - ${filterHeight + 100}px)`; // Ajuster la hauteur si le contenu caché est visible
+        contenuRef.current.style.height = `calc(100% - ${filterHeight + 70}px)`; // Ajuster la hauteur si le contenu caché est visible
       } else {
         contenuRef.current.style.height = `calc(100% - ${filterHeight}px)`; // Hauteur par défaut
       }
@@ -64,14 +64,14 @@ const Appcontainer = () => {
       </div>
 
       {/* Zone cachée avec animation conditionnelle */}
-      {isHiddenContentVisible && (
+      
         <div
           id="hiddenContent"
           className={`hiddenContent ${isHiddenContentVisible ? "visible" : ""}`}
         >
           <p>Contenu supplémentaire révélé ici.</p>
         </div>
-      )}
+      
 
       {/* Zone principale avec la classe conditionnelle */}
       <div
