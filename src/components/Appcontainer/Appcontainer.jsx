@@ -10,7 +10,14 @@ const Appcontainer = () => {
 
   // Etat pour l'agrandissement du filtre
   const [isFilterExpanded, setIsFilterExpanded] = useState(false);
-
+  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption2, setSelectedOption2] = useState('');
+  const handleFilterChange = (event) => {
+    setSelectedOption(event.target.value);
+};
+const handleFilterChange2 = (event) => {
+  setSelectedOption2(event.target.value);
+};
   // Références pour les éléments
   const contenuRef = useRef(null);
   const filterRef = useRef(null);
@@ -28,6 +35,7 @@ const Appcontainer = () => {
       }
     }
   };
+  
   
 
   // Utiliser useEffect pour ajuster la hauteur au chargement et lors du redimensionnement
@@ -56,6 +64,27 @@ const Appcontainer = () => {
         className={`filter ${isFilterExpanded ? "expanded" : ""}`}
         ref={filterRef}
       >
+        <div className="filter-box">
+            <div className="select-wrapper">
+                <select className="select" value={selectedOption} onChange={handleFilterChange}>
+                    <option value="">Client</option>
+                    <option value="option1">Le caca du cul qui pue</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+        </div>
+        <div className="filter-box">
+            <div className="select-wrapper">
+                <select className="select" value={selectedOption2} onChange={handleFilterChange2}>
+                    <option value="">Sites en liste</option>
+                    <option value="option1">Le caca du cul qui pue</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+        </div>
+
         <button className="filter-button" onClick={toggleContentVisibility}>
           <FontAwesomeIcon icon={faFilter} />
         </button>

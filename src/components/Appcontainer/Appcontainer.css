@@ -17,11 +17,42 @@
 
 .filter {
   @apply bg-gray-300 py-2 px-4 rounded-t-lg flex justify-end items-center;
-  height: 40px; /* Hauteur par défaut */
+  height: 5rem; /* Hauteur par défaut */
   overflow: hidden; /* Cache tout le contenu qui dépasse */
- 
+}
+/* FilterBox.css */
+
+.filter-box {
+  @apply absolute left-11;
 }
 
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-top-color: #4a5568;
+}
+
+.select {
+  appearance: none;
+  padding: 8px 40px 8px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background-color: #edf2f7;
+  color: #4a5568;
+}
+
+.select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
 
 .hiddenContent {
   @apply bg-gray-300 p-0 rounded-lg;
