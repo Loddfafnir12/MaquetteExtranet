@@ -1,5 +1,5 @@
 .Contenu {
-  @apply absolute bottom-0 right-0 bg-gray-300 rounded-lg;
+  @apply absolute bottom-2 right-2 bg-gray-300 rounded-lg;
   width: calc(100% - 275px); /* Reste de l'espace */
   height: calc(100% - 135px); /* Reste de l'espace */
   display: flex; /* Pour faciliter l'organisation des enfants si besoin */
@@ -17,21 +17,17 @@
 
 .filter {
   @apply bg-gray-300 py-2 px-4 rounded-t-lg flex justify-end items-center;
-  height: 30px; /* Hauteur par défaut */
+  height: 40px; /* Hauteur par défaut */
   overflow: hidden; /* Cache tout le contenu qui dépasse */
-  transition: height 1s ease;
+ 
 }
 
-.filter.expanded {
-  max-height: 300px; /* Hauteur agrandie (on utilise max-height pour animer) */
-  padding: 20px 4rem; /* Agrandir le padding pour l'agrandissement */
-}
 
 .hiddenContent {
-  @apply bg-gray-300 p-4 rounded-lg;
+  @apply bg-gray-300 p-0 rounded-lg;
   opacity: 0;
   height: 0px;
-  transition: all 200ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 .hiddenContent.visible {

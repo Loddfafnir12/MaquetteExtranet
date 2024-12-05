@@ -19,9 +19,10 @@ const Appcontainer = () => {
   const adjustContentHeight = () => {
     if (contenuRef.current && filterRef.current) {
       const filterHeight = filterRef.current.offsetHeight; // Hauteur de .filter
+      
 
       if (isHiddenContentVisible) {
-        contenuRef.current.style.height = `calc(100% - ${filterHeight + 70}px)`; // Ajuster la hauteur si le contenu caché est visible
+        contenuRef.current.style.height = `calc(100% - ${filterHeight}px)`; // Ajuster la hauteur si le contenu caché est visible
       } else {
         contenuRef.current.style.height = `calc(100% - ${filterHeight}px)`; // Hauteur par défaut
       }

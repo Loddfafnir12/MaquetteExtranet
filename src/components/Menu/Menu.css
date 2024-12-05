@@ -1,6 +1,6 @@
 /* Sidebar */
 .sidebar {
-  @apply fixed top-0 left-0 h-full w-64 bg-transparent text-white p-4 transition-all duration-300 ease-in-out;
+  @apply fixed top-0 left-0 h-full w-60 bg-transparent text-white p-4 transition-all duration-300 ease-in-out;
   z-index: 10; /* Assurez-vous que la sidebar ait un z-index supérieur au tableau */
   transform: translateX(-100%); /* Menu caché par défaut en mode mobile */
   display: none; /* Le menu est caché par défaut en mode mobile */
