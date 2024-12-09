@@ -5,61 +5,67 @@ import "./Appcontainer.css";
 import "./Ticketcontainer.css";
 
 const Appcontainer = () => {
-  // Etat pour savoir si le contenu caché est visible
+  // Etats existants
   const [isHiddenContentVisible, setIsHiddenContentVisible] = useState(false);
-
-  // Etat pour l'agrandissement du filtre
   const [isFilterExpanded, setIsFilterExpanded] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
+
+  // Nouvel état pour l'ouverture/fermeture des `select-wrapper`
+  const [openSelectIndex, setOpenSelectIndex] = useState(null);
+
   const handleFilterChange = (event) => {
     setSelectedOption(event.target.value);
-};
-const handleFilterChange2 = (event) => {
-  setSelectedOption2(event.target.value);
-};
-const handleFilterChange3 = (event) => {
-  setSelectedOption3(event.target.value);
-};
-  // Références pour les éléments
+  };
+
+  const handleFilterChange2 = (event) => {
+    setSelectedOption2(event.target.value);
+  };
+
+  const handleFilterChange3 = (event) => {
+    setSelectedOption3(event.target.value);
+  };
+
+  // Références
   const contenuRef = useRef(null);
   const filterRef = useRef(null);
 
-  // Fonction pour ajuster la hauteur de Contenu-Contenu
+  // Ajustement de la hauteur
   const adjustContentHeight = () => {
     if (contenuRef.current && filterRef.current) {
-      const filterHeight = filterRef.current.offsetHeight; // Hauteur de .filter
-      
+      const filterHeight = filterRef.current.offsetHeight;
 
       if (isHiddenContentVisible) {
-        contenuRef.current.style.height = `calc(100% - ${filterHeight}px)`; // Ajuster la hauteur si le contenu caché est visible
+        contenuRef.current.style.height = `calc(100% - ${filterHeight}px)`;
       } else {
-        contenuRef.current.style.height = `calc(100% - ${filterHeight}px)`; // Hauteur par défaut
+        contenuRef.current.style.height = `calc(100% - ${filterHeight}px)`;
       }
     }
   };
-  
-  
 
-  // Utiliser useEffect pour ajuster la hauteur au chargement et lors du redimensionnement
   useEffect(() => {
     adjustContentHeight();
-    contenuRef.current?.classList.add("contenu-contenu"); // Ajoute la classe CSS pour la transition
+    contenuRef.current?.classList.add("contenu-contenu");
     window.addEventListener("resize", adjustContentHeight);
     return () => {
-      window.removeEventListener("resize", adjustContentHeight); // Nettoyage
+      window.removeEventListener("resize", adjustContentHeight);
     };
   }, [isHiddenContentVisible, isFilterExpanded]);
 
-  // Fonction pour gérer le clic sur le bouton et afficher/masquer le contenu caché
+  // Gestion visibilité contenu
   const toggleContentVisibility = () => {
     setIsHiddenContentVisible(!isHiddenContentVisible);
   };
 
-  // Fonction pour agrandir ou réduire le filtre
+  // Gestion taille filtre
   const toggleFilterSize = () => {
-    setIsFilterExpanded(!isFilterExpanded); // Alterne l'état d'agrandissement
+    setIsFilterExpanded(!isFilterExpanded);
+  };
+
+  // Gestion ouverture des `select-wrapper`
+  const toggleSelectWrapper = (index) => {
+    setOpenSelectIndex(openSelectIndex === index ? null : index);
   };
 
   return (
@@ -69,52 +75,71 @@ const handleFilterChange3 = (event) => {
         ref={filterRef}
       >
         <div className="filter-box">
-            <div className="select-wrapper">
-                <select className="select" value={selectedOption} onChange={handleFilterChange}>
-                    <option value="">Client</option>
-                    <option value="option1">Le caca du cul qui pue</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            </div>
-        </div>
-        <div className="filter-box">
-            <div className="select-wrapper">
-                <select className="select" value={selectedOption2} onChange={handleFilterChange2}>
-                    <option value="">Sites en liste</option>
-                    <option value="option1">Le caca du cul qui pue</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            </div>
-        </div>
-        <div className="filter-box">
-            <div className="select-wrapper">
-                <select className="select" value={selectedOption3} onChange={handleFilterChange3}>
-                    <option value="">Matériel</option>
-                    <option value="option1">Le caca du cul qui pue</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            </div>
+          <div
+            className={`select-wrapper ${
+              openSelectIndex === 0 ? "open" : "closed"
+            }`}
+            onClick={() => toggleSelectWrapper(0)}
+          >
+            <select
+              className="select"
+              value={selectedOption}
+              onChange={handleFilterChange}
+            >
+              <option value="">Client</option>
+              <option value="option1">Le caca du cul qui pue</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+          </div>
+          <div
+            className={`select-wrapper ${
+              openSelectIndex === 1 ? "open" : "closed"
+            }`}
+            onClick={() => toggleSelectWrapper(1)}
+          >
+            <select
+              className="select"
+              value={selectedOption2}
+              onChange={handleFilterChange2}
+            >
+              <option value="">Sites en liste</option>
+              <option value="option1">Le caca du cul qui pue</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+          </div>
+          <div
+            className={`select-wrapper ${
+              openSelectIndex === 2 ? "open" : "closed"
+            }`}
+            onClick={() => toggleSelectWrapper(2)}
+          >
+            <select
+              className="select"
+              value={selectedOption3}
+              onChange={handleFilterChange3}
+            >
+              <option value="">Matériel</option>
+              <option value="option1">Le caca du cul qui pue</option>
+              <option value="option2">Option 2</option>
+              <option value="option3">Option 3</option>
+            </select>
+          </div>
         </div>
 
         <button className="filter-button" onClick={toggleContentVisibility}>
           <FontAwesomeIcon icon={faFilter} />
         </button>
-        <button onClick={toggleFilterSize}>
-          {isFilterExpanded }
-        </button>
+        <button onClick={toggleFilterSize}>{isFilterExpanded}</button>
       </div>
 
-      {/* Zone cachée avec animation conditionnelle */}
-      
-        <div
-          id="hiddenContent"
-          className={`hiddenContent ${isHiddenContentVisible ? "visible" : ""}`}
-        >
-          <p>Contenu supplémentaire révélé ici.</p>
-        </div>
+      <div
+        id="hiddenContent"
+        className={`hiddenContent ${isHiddenContentVisible ? "visible" : ""}`}
+      >
+        <p>Contenu supplémentaire révélé ici.</p>
+      </div>
       
 
       {/* Zone principale avec la classe conditionnelle */}

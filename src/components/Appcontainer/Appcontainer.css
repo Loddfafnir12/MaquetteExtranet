@@ -23,11 +23,26 @@
 /* FilterBox.css */
 
 .filter-box {
-  @apply flex items-center justify-between pr-1;
+  @apply flex items-center justify-start w-full gap-4; /* Aligne à gauche avec un espace constant */
+  margin: 0;
+  padding: 0;
 }
 
 .select-wrapper {
   position: relative;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 40px;
+}
+
+.select-wrapper.open {
+  max-height: 200px; /* Hauteur ajustée pour état ouvert */
+  opacity: 1;
+}
+
+.select-wrapper.closed {
+  max-height: 40px; /* Hauteur par défaut */
+  opacity: 0.9;
 }
 
 .select-wrapper::after {
@@ -38,6 +53,11 @@
   transform: translateY(-50%);
   border: 6px solid transparent;
   border-top-color: #4a5568;
+  transition: transform 0.3s ease;
+}
+
+.select-wrapper.open::after {
+  transform: translateY(-50%) rotate(180deg); /* Flèche inversée */
 }
 
 .select {
@@ -47,13 +67,13 @@
   border-radius: 4px;
   background-color: #edf2f7;
   color: #4a5568;
+  width: auto;
 }
 
 .select:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
 }
-
 .hiddenContent {
   @apply bg-gray-300 p-0 rounded-lg;
   opacity: 0;
