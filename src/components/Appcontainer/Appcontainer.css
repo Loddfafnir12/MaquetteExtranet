@@ -23,7 +23,7 @@
 /* FilterBox.css */
 
 .filter-box {
-  @apply absolute left-11;
+  @apply flex items-center justify-between pr-1;
 }
 
 .select-wrapper {

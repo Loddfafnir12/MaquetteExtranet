@@ -12,11 +12,15 @@ const Appcontainer = () => {
   const [isFilterExpanded, setIsFilterExpanded] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
+  const [selectedOption3, setSelectedOption3] = useState('');
   const handleFilterChange = (event) => {
     setSelectedOption(event.target.value);
 };
 const handleFilterChange2 = (event) => {
   setSelectedOption2(event.target.value);
+};
+const handleFilterChange3 = (event) => {
+  setSelectedOption3(event.target.value);
 };
   // Références pour les éléments
   const contenuRef = useRef(null);
@@ -78,6 +82,16 @@ const handleFilterChange2 = (event) => {
             <div className="select-wrapper">
                 <select className="select" value={selectedOption2} onChange={handleFilterChange2}>
                     <option value="">Sites en liste</option>
+                    <option value="option1">Le caca du cul qui pue</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+        </div>
+        <div className="filter-box">
+            <div className="select-wrapper">
+                <select className="select" value={selectedOption3} onChange={handleFilterChange3}>
+                    <option value="">Matériel</option>
                     <option value="option1">Le caca du cul qui pue</option>
                     <option value="option2">Option 2</option>
                     <option value="option3">Option 3</option>
