@@ -15,6 +15,21 @@
   opacity: 1;
 }
 
+.search-input {
+  padding: 0.4rem;
+  background-color: #edf2f7;
+  border-radius: 0.25rem;
+  width: auto;
+  color: #4a5568;
+}
+
+.search-input input {
+  border: 1px solid transparent;
+  color: #4a5568;
+  background-color: #edf2f7;
+  border-radius: 0.25rem;
+}
+
 .filter {
   @apply bg-gray-300 py-2 px-4 rounded-t-lg flex justify-end items-center;
   height: 5rem; /* Hauteur par défaut */
@@ -74,8 +89,9 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
 }
+
 .hiddenContent {
-  @apply bg-gray-300 p-0 rounded-lg;
+  @apply bg-gray-300 px-4 rounded-t-lg flex justify-end items-center;
   opacity: 0;
   height: 0px;
   transition: all 300ms ease-in-out;
@@ -113,6 +129,9 @@
 /* Handle on hover */
 .Contenu-Contenu::-webkit-scrollbar-thumb:hover {
   background: #4d799a; /* Darker handle color on hover */
+}
+.Ticket:hover {
+  background-color: lightgray;
 }
 
 @media (max-width: 480px) {

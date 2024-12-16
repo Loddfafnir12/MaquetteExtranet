@@ -72,6 +72,10 @@ const Appcontainer = () => {
     setOpenSelectIndex(openSelectIndex === index ? null : index);
   };
 
+
+  //dropdown
+  
+  
   return (
     <div className="Contenu">
       <div
@@ -113,6 +117,10 @@ const Appcontainer = () => {
               <option value="option3">F0508 - Paris</option>
             </select>
           </div>
+          <div className="search-input">
+          <input type="text" placeholder="Numéro de tracking" />
+          
+          </div>
           <div
             className={`select-wrapper ${
               openSelectIndex === 2 ? "open" : "closed"
@@ -129,6 +137,10 @@ const Appcontainer = () => {
               <option value="option2">DS2278</option>
               <option value="option3">ZQ610</option>
             </select>
+          </div>
+          <div className="search-input">
+          <input type="text" placeholder="Numéro de série" />
+          
           </div>
         </div>
 
@@ -171,7 +183,7 @@ const Appcontainer = () => {
         ref={contenuRef}
         className="Contenu-Contenu"
       >
-        <p>Ticket 10000</p>
+        <div className="Ticket"> <p>Ticket 10000</p></div>
         <p>Ticket 10000</p>
         <p>Ticket 10000</p>
         <p>Ticket 10000</p>
