@@ -11,7 +11,7 @@
 .Contenu-Contenu {
   @apply bg-white rounded-md overflow-auto text-5xl mx-2 transition-all ease-in-out; /* Transition fluide */
   flex-grow: 1; /* L'enfant remplit l'espace restant de son parent */
-  margin: 2px; /* Espacement interne */
+  margin: 5px; /* Espacement interne */
   opacity: 1;
 }
 

@@ -11,6 +11,7 @@ const Appcontainer = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
+  const [selectedOption4, setSelectedOption4] = useState('');
 
   // Nouvel état pour l'ouverture/fermeture des `select-wrapper`
   const [openSelectIndex, setOpenSelectIndex] = useState(null);
@@ -25,6 +26,9 @@ const Appcontainer = () => {
 
   const handleFilterChange3 = (event) => {
     setSelectedOption3(event.target.value);
+  };
+  const handleFilterChange4 = (event) => {
+    setSelectedOption4(event.target.value);
   };
 
   // Références
@@ -87,9 +91,9 @@ const Appcontainer = () => {
               onChange={handleFilterChange}
             >
               <option value="">Client</option>
-              <option value="option1">Le caca du cul qui pue</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+              <option value="option1">CHRONODRIVE</option>
+              <option value="option2">Supermarché Match</option>
+              <option value="option3">Boulanger</option>
             </select>
           </div>
           <div
@@ -104,9 +108,9 @@ const Appcontainer = () => {
               onChange={handleFilterChange2}
             >
               <option value="">Sites en liste</option>
-              <option value="option1">Le caca du cul qui pue</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+              <option value="option1">1001_MARCQ</option>
+              <option value="option2">302 - Tourcoing</option>
+              <option value="option3">F0508 - Paris</option>
             </select>
           </div>
           <div
@@ -121,9 +125,9 @@ const Appcontainer = () => {
               onChange={handleFilterChange3}
             >
               <option value="">Matériel</option>
-              <option value="option1">Le caca du cul qui pue</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
+              <option value="option1">TC52X</option>
+              <option value="option2">DS2278</option>
+              <option value="option3">ZQ610</option>
             </select>
           </div>
         </div>
@@ -138,7 +142,27 @@ const Appcontainer = () => {
         id="hiddenContent"
         className={`hiddenContent ${isHiddenContentVisible ? "visible" : ""}`}
       >
-        <p>Contenu supplémentaire révélé ici.</p>
+        <div className="filter-box">
+          <div
+            className={`select-wrapper ${
+              openSelectIndex === 3 ? "open" : "closed"
+            }`}
+            onClick={() => toggleSelectWrapper(3)}
+          >
+            <select
+              className="select"
+              value={selectedOption4}
+              onChange={handleFilterChange4}
+            >
+              <option value="">Transporteur</option>
+              <option value="option1">CHRONODRIVE</option>
+              <option value="option2">Supermarché Match</option>
+              <option value="option3">Boulanger</option>
+            </select>
+          </div>
+          </div>
+          
+
       </div>
       
 
