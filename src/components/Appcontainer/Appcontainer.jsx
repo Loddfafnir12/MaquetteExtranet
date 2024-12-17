@@ -184,39 +184,23 @@ const Appcontainer = () => {
         className="Contenu-Contenu"
       >
         <div className="Ticket"> <p>Ticket 10000</p></div>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
-        <p>Ticket 10000</p>
+        <div className="Ticket"> <p>Ticket 10001</p></div>
+        <div className="Ticket"> <p>Ticket 10002</p></div>
+        <div className="Ticket"> <p>Ticket 10003</p></div>
+        <div className="Ticket"> <p>Ticket 10004</p></div>
+        <div className="Ticket"> <p>Ticket 10005 sur deux ligne</p><p>Deuxieme ligne du ticket</p></div>
+        <div className="Ticket"> <p>Ticket 10006</p></div>
+        <div className="Ticket"> <p>Ticket 10007</p></div>
+        <div className="Ticket"> <p>Ticket 10008</p></div>
+        <div className="Ticket"> <p>Ticket 10009</p></div>
+        <div className="Ticket"> <p>Ticket 10010</p></div>
+        <div className="Ticket"> <p>Ticket 10011</p></div>
+        <div className="Ticket"> <p>Ticket 10012</p></div>
+        <div className="Ticket"> <p>Ticket 10013</p></div>
+        <div className="Ticket"> <p>Ticket 10014</p></div>
+        <div className="Ticket"> <p>Ticket 10015</p></div>
+        <div className="Ticket"> <p>Ticket 10016</p></div>
+        <div className="Ticket"> <p>Ticket 10017</p></div>
       </div>
     </div>
   );

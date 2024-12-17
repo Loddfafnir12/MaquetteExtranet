@@ -130,8 +130,13 @@
 .Contenu-Contenu::-webkit-scrollbar-thumb:hover {
   background: #4d799a; /* Darker handle color on hover */
 }
+.Ticket{
+  
+}
 .Ticket:hover {
-  background-color: lightgray;
+  @apply transition-all duration-500 scale-100 rounded-sm shadow-lg;
+  background-color: #263c4e;
+  color: white;
 }
 
 @media (max-width: 480px) {
